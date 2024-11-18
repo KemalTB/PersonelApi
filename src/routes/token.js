@@ -5,10 +5,10 @@
 const router = require('express').Router()
 /* ------------------------------------------------------- */
 
-const { list, create, read, update, delete: deletePersonnel } = require('../controllers/personnel')
+const { list, create, read, update, delete: deleteToken } = require('../controllers/token')
 const { isAdmin } = require('../middlewares/permissions')
 
-// URL : /personnels
+// URL : /tokens
 
 router.use(isAdmin) // this is router middleware, it runs before every method
 
@@ -20,7 +20,7 @@ router.route('/:id')
     .get(read)
     .put(update)
     .patch(update)
-    .delete(deletePersonnel)
+    .delete(deleteToken)
 
 /* ------------------------------------------------------- */
 module.exports = router
